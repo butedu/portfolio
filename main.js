@@ -67,6 +67,9 @@ const navigation = document.querySelector('#main-nav');
 const navButton = document.querySelector('.nav-toggle');
 const header = document.querySelector('.topbar');
 const languages = [...document.querySelectorAll('.language-switch a')];
+languages.forEach(link => link.addEventListener('click', () => {
+  try { localStorage.setItem('portfolio-language', link.getAttribute('hreflang')); } catch (error) { /* Navigation still works without storage. */ }
+}));
 header.dataset.menuReady = '';
 
 // Refract the page behind the navigation without distorting its controls.
